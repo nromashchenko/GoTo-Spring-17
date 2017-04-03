@@ -9,10 +9,18 @@ result = requests.post("https://westus.api.cognitive.microsoft.com/emotion/v1.0/
                                 "Ocp-Apim-Subscription-Key": "ed949f112a524980ad1907524eb7d32d"})
 face_result = json.loads(result.text)
 
+family = Image.open("family.jpeg").convert('RGBA')
+mask = Image.open("mask.png")
+
 for face in face_result:
-    print(" ---------------------- ")
     rectangle = face['faceRectangle']
-    print("x: ", rectangle['left'])
-    print("y: ", rectangle['top'])
-    print("width: ", rectangle['width'])
-    print("height: ", rectangle['height'])
+    x = rectangle['left']
+    y = rectangle['top']
+    w = rectangle['width']
+    h = rectangle['height']
+
+    box = (x, y, x + w, y + h)
+    m = mask.resize((w,h))
+    family.paste(m, box, m)
+
+family.show()
