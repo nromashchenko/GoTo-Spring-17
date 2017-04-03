@@ -20,7 +20,8 @@ for face in face_result:
     h = rectangle['height']
 
     box = (x, y, x + w, y + h)
-    m = mask.resize((w,h))
+    m = mask.resize((w, h))
     family.paste(m, box, m)
 
 family.show()
+
