@@ -3,7 +3,7 @@ import uuid
 import telebot
 from pydub import AudioSegment
 
-token = ""
+token = "TOKEN"
 
 bot = telebot.TeleBot(token=token)
 
@@ -12,7 +12,6 @@ bot = telebot.TeleBot(token=token)
 def save(message):
     file_id = message.voice.file_id
     path = bot.get_file(file_id)
-    extn = '.' + str(path.file_path).split('.')[-1]
     downloaded_file = bot.download_file(path.file_path)
     name = str(uuid.uuid4())
     cname = name + ".ogg"
