@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 50px;
+        }
+
+        .starter-template {
+            padding: 40px 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" style="background: none; background-color: #369FC7; border: 0px;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/" style="color: white; font-family: 'Lobster', cursive; font-size: 28px;">Котовзор</a>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container">
+
+    <h3>{{cat['name']}}</h3>
+    <p>&nbsp;</p>
+    <div class="media">
+        <div class="media-left">
+            <img class="media-object" style="width: 200px;" src="{{cat['photo']}}">
+        </div>
+        <div class="media-body">
+            <p>
+                <strong>Описание: </strong><br>
+                {{cat['text']}}
+            </p>
+            <p>
+                <strong>E-mail: </strong><br>
+                {{cat['email']}}
+            </p>
+            <p>
+                <strong>Пол: </strong><br>
+                {% if cat['sex'] == "not_stated" %}
+                    Не понятно
+                {% end %}
+                {% if cat['sex'] == "male" %}
+                    Мужик
+                {% end %}
+                {% if cat['sex'] == "female" %}
+                    Жена мужика
+                {% end %}
+            </p>
+            <p>
+                <strong>Порода: </strong><br>
+                {{cat['type']}}
+            </p>
+        </div>
+    </div>
+
+
+    <h3>Комментарии</h3>
+
+    {% for comment in cat["comments"] %}
+    <p><strong>{{comment["name"]}}</strong><br>
+    {{comment["text"]}}
+    </p>
+    {% end %}
+
+    <form method="POST">
+        <div class="form-group">
+            <label for="name">Ник</label>
+            <input name="name" class="form-control" id="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="text">Комментарий</label>
+            <textarea class="form-control" name="text" id="text" rows="3" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-default">Отправить</button>
+    </form>
+
+
+</div><!-- /.container -->
+
+
+</body>
+</body>
+</html>

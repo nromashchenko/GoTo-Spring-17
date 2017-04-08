@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 50px;
+        }
+
+        .starter-template {
+            padding: 40px 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" style="background: none; background-color: #369FC7; border: 0px;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/" style="color: white; font-family: 'Lobster', cursive; font-size: 28px;">Котовзор</a>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container">
+
+    <h3>Добавление кота</h3>
+    <p>&nbsp;</p>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="email">E - mail хозяина</label>
+            <input type="email" name="email" class="form-control" id="email" placeholder="Email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Имя</label>
+            <input name="name"  class="form-control" id="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="type">Порода</label>
+            <input name="type" class="form-control" id="type" required>
+        </div>
+
+        <div class="radio">
+            <label>
+                <input type="radio" name="sex" value="male" checked>
+                Мальчик
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="sex" value="female">
+                Девочка
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="sex" value="not_stated">
+                Не понятно
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label for="text">Описание</label>
+            <textarea class="form-control" name="text" id="text" rows="3" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="photo">Фото</label>
+            <input type="file" name="photo" id="photo" required>
+        </div>
+
+        <button type="submit" class="btn btn-default">Сохранить</button>
+    </form>
+
+</div><!-- /.container -->
+
+
+</body>
+</body>
+</html>
